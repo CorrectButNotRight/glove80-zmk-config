@@ -100,7 +100,7 @@
 
     /* Custom Defined Behaviors */
 / {
-        #define LYBAS 0
+    #define LYBAS 0
     #define LYGAM 1
     #define LYPAD 2
     #define LYLOW 3
@@ -319,12 +319,12 @@
 
         layer_Base {
             bindings = <
- &ht_kp LC(V) LC(C)  &kp LC(LS(TAB))  &ht_kp F5 LC(F)  &kp LC(W)  &kp LC(TAB)                                                                                                                &kp F6  &kp LC(T)  &kp F11  &kp PSCRN                 &kp DEL
-          &kp GRAVE           &kp N1           &kp N2     &kp N3       &kp N4  &kp N5                                                                                              &kp N6    &kp N7     &kp N8   &kp N9     &kp N0                &kp BSLH
-          &kp EQUAL            &kp Q            &kp W      &kp F        &kp P   &kp B                                                                                               &kp J     &kp L      &kp U    &kp Y   &kp SEMI               &kp MINUS
-            &capesc            &kp A            &kp R      &kp S        &kp T   &kp G                                                                                               &kp M     &kp N      &kp E    &kp I      &kp O                 &kp SQT
-           &kp LBKT            &kp Z            &kp X      &kp C        &kp D   &kp V  &kp LSHFT           &kp LCTRL  &kp LGUI  &td_rgui           &td_rctrl  &ht_skq RSHFT RSHFT   &kp K     &kp H  &kp COMMA  &kp DOT   &kp FSLH                &kp RBKT
-     &magic LYMAG 0      &kp LS(TAB)         &kp LEFT  &kp RIGHT      &kp TAB          &kp SPACE  &ht_mo LYLOW ENTER  &kp LALT  &td_ralt  &ht_mo LYLOW ENTER             &kp BSPC          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT  &ht_mo_tog LYLYR LYPAD
+ &ht_kp LC(V) LC(C)  &kp LC(LS(TAB))  &ht_kp F5 LC(F)  &kp LC(W)  &kp LC(TAB)                                                                                                                                  &kp F6  &kp LC(T)  &kp F11  &kp PSCRN                 &kp DEL
+          &kp GRAVE           &kp N1           &kp N2     &kp N3       &kp N4  &kp N5                                                                                                                &kp N6    &kp N7     &kp N8   &kp N9     &kp N0                &kp BSLH
+          &kp EQUAL            &kp Q            &kp W      &kp F        &kp P   &kp B                                                                                                                 &kp J     &kp L      &kp U    &kp Y   &kp SEMI               &kp MINUS
+            &capesc            &kp A            &kp R      &kp S        &kp T   &kp G                                                                                                                 &kp M     &kp N      &kp E    &kp I      &kp O                 &kp SQT
+           &kp LBKT            &kp Z            &kp X      &kp C        &kp D   &kp V  &kp LSHFT           &kp LCTRL  &kp LGUI  &ht_skq RGUI RS(RGUI)  &ht_skq RCTRL RS(RCTRL)  &ht_skq RSHFT RSHFT   &kp K     &kp H  &kp COMMA  &kp DOT   &kp FSLH                &kp RBKT
+     &magic LYMAG 0      &kp LS(TAB)         &kp LEFT  &kp RIGHT      &kp TAB          &kp SPACE  &ht_mo LYLOW ENTER  &kp LALT  &ht_skq RALT RS(RALT)       &ht_mo LYLOW ENTER             &kp BSPC          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT  &ht_mo_tog LYLYR LYPAD
             >;
         };
 

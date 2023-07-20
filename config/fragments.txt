@@ -1,4 +1,4 @@
-    #define LYBAS 0
+#define LYBAS 0
     #define LYGAM 1
     #define LYPAD 2
     #define LYLOW 3
