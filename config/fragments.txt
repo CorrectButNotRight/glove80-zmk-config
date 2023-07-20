@@ -1,0 +1,208 @@
+    #define LYBAS 0
+    #define LYGAM 1
+    #define LYPAD 2
+    #define LYLOW 3
+    #define LYLYR 4
+    #define LYMAG 5
+    #define TD_TERM 200
+    #define HT_TERM 200
+    #define COMBO_TIME 50
+    #define FAST_WAIT 1
+    #define FAST_TAP 10
+
+    #define TD_SHIFT_MOD(name, key) TD_DEFINE(name, <&kp key>, <&kp LS(key)>)
+    #define TD_DEFINE(name, beh1, beh2) TD_DEFINE_1(td_##name, tap_##name, beh1, beh2)
+    #define TD_DEFINE_1(shortname, longname, beh1, beh2) shortname: longname { \
+        compatible = "zmk,behavior-tap-dance"; \
+        label = #shortname; \
+        #binding-cells = <0>; \
+        tapping-term-ms = <TD_TERM>; \
+        bindings = beh1, beh2; \
+    };
+    #define FAST_SYM(name, key) ZMK_MACRO(fast_##name, \
+        wait-ms = <FAST_WAIT>; \
+        tap-ms = <FAST_TAP>; \
+        bindings = <&kp key>; \
+    )
+    #define HT_DEFINE(name, beh1, beh2) HT_DEFINE_1(ht_##name, behavior_ht_##name, beh1, beh2)
+    #define HT_DEFINE_1(shortname, longname, beh1, beh2) \
+        shortname: longname { \
+            compatible = "zmk,behavior-hold-tap"; \
+            label = #shortname; \
+            #binding-cells = <2>; \
+            flavor = "hold-preferred"; \
+            tapping-term-ms = <HT_TERM>; \
+            quick-tap-ms = <100>; \
+            bindings = beh1, beh2; \
+        };
+
+    skq: sticky_key_quick_release {
+        compatible = "zmk,behavior-sticky-key";
+        label = "STICKY_KEY_QUICK_RELEASE";
+        #binding-cells = <1>;
+        bindings = <&kp>;
+        release-after-ms = <1000>;
+        quick-release;
+        ignore-modifiers;
+    };
+
+    slpar: shift_lpar {
+        compatible = "zmk,behavior-mod-morph";
+        label = "SHIFT_LPAR";
+        #binding-cells = <0>;
+        bindings = <&kp LPAR>, <&kp RPAR>;
+        mods = <(MOD_RSFT)>;
+    };
+
+    srpar: shift_rpar {
+        compatible = "zmk,behavior-mod-morph";
+        label = "SHIFT_RPAR";
+        #binding-cells = <0>;
+        bindings = <&kp RPAR>, <&kp LPAR>;
+        mods = <(MOD_LSFT)>;
+    };
+
+    TD_SHIFT_MOD(gui, LGUI)
+    TD_SHIFT_MOD(rgui, LGUI)
+    TD_SHIFT_MOD(ctrl, LCTRL)
+    TD_SHIFT_MOD(rctrl, RCTRL)
+    TD_SHIFT_MOD(alt, LALT)
+    TD_SHIFT_MOD(ralt, RALT)
+    TD_DEFINE(caps_word, <&kp RSHFT>, <&caps_word>)
+    TD_DEFINE(caps_lock, <&kp RSHFT>, <&kp CAPS>)
+    TD_DEFINE(alt_sgui, <&kp LALT>, <&kp LS(LGUI)>)
+    TD_DEFINE(rshft_lower, <&kp RSHFT>, <&mo 4>)
+    FAST_SYM(lbkt, LBKT)
+    FAST_SYM(rbkt, RBKT)
+    FAST_SYM(lbrc, LBRC)
+    FAST_SYM(rbrc, RBRC)
+    FAST_SYM(lpar, LPAR)
+    FAST_SYM(rpar, RPAR)
+    FAST_SYM(equal, EQUAL)
+    FAST_SYM(plus, PLUS)
+    FAST_SYM(under, UNDER)
+    FAST_SYM(minus, MINUS)
+    FAST_SYM(bslh, BSLH)
+    FAST_SYM(pipe, PIPE)
+    FAST_SYM(grave, GRAVE)
+    FAST_SYM(tilde, TILDE)
+    FAST_SYM(sqt, SQT)
+    FAST_SYM(dqt, DQT)
+    HT_DEFINE(kp, <&kp>, <&kp>)
+    HT_DEFINE(mo, <&mo>, <&kp>)
+    HT_DEFINE(tog, <&kp>, <&tog>)
+    HT_DEFINE(kp_sl, <&kp>, <&sl>)
+    HT_DEFINE(skq, <&kp>, <&skq>)
+    HT_DEFINE(mo_skq, <&mo>, <&skq>)
+    HT_DEFINE(mo_sl, <&mo>, <&sl>)
+    HT_DEFINE(mo_repeat, <&mo>, <&key_repeat>)
+    HT_DEFINE(mo_tog, <&mo>, <&tog>)
+    HT_DEFINE(lpar_cadet, <&kp>, <&slpar>)
+    HT_DEFINE(rpar_cadet, <&kp>, <&srpar>)
+
+    ZMK_MACRO(keypad_space,
+        wait-ms = <FAST_WAIT>;
+        tap-ms = <FAST_TAP>;
+        bindings = <&kp SPACE>, <&tog LYPAD>;
+    )
+    ZMK_MACRO(keypad_enter,
+        wait-ms = <FAST_WAIT>;
+        tap-ms = <FAST_TAP>;
+        bindings = <&kp ENTER>, <&tog LYPAD>;
+    )
+    ZMK_MACRO(keypad_tab,
+        wait-ms = <FAST_WAIT>;
+        tap-ms = <FAST_TAP>;
+        bindings = <&kp TAB>, <&tog LYPAD>;
+    )
+    ZMK_MACRO(keypad_stab,
+        wait-ms = <FAST_WAIT>;
+        tap-ms = <FAST_TAP>;
+        bindings = <&kp LS(TAB)>, <&tog LYPAD>;
+    )
+    ZMK_MACRO(keypad_esc,
+        wait-ms = <FAST_WAIT>;
+        tap-ms = <FAST_TAP>;
+        bindings = <&kp ESC>, <&tog LYPAD>;
+    )
+
+    td_layers: tap_dance_layers {
+        compatible = "zmk,behavior-tap-dance";
+        label = "td_layers";
+        #binding-cells = <0>;
+        tapping-term-ms = <TD_TERM>;
+        bindings = <&tog LYPAD>, <&tog LYGAM>;
+    };
+
+    captab: caps_tab {
+        compatible = "zmk,behavior-mod-morph";
+        label = "CAPS_TAB";
+        #binding-cells = <0>;
+        bindings = <&kp CAPS>, <&kp TAB>;
+        mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+        keep-mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)>;
+    };
+
+    capesc: caps_esc {
+        compatible = "zmk,behavior-mod-morph";
+        label = "CAPS_ESC";
+        #binding-cells = <0>;
+        bindings = <&kp ESC>, <&kp CAPS>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n8lpar: eight_lpar {
+        compatible = "zmk,behavior-mod-morph";
+        label = "EIGHT_LPAR";
+        #binding-cells = <0>;
+        bindings = <&kp N8>, <&kp LPAR>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n9rpar: nine_rpar {
+        compatible = "zmk,behavior-mod-morph";
+        label = "NINE_RPAR";
+        #binding-cells = <0>;
+        bindings = <&kp N9>, <&kp RPAR>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n0astrk: zero_astrk {
+        compatible = "zmk,behavior-mod-morph";
+        label = "ZERO_ASTRK";
+        #binding-cells = <0>;
+        bindings = <&kp N0>, <&kp ASTRK>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    td_kp_tab: tap_dance_keypad_tab {
+        compatible = "zmk,behavior-tap-dance";
+        label = "td_keypad_tab";
+        #binding-cells = <0>;
+        tapping-term-ms = <TD_TERM>;
+        bindings = <&keypad_tab>, <&kp TAB>;
+    };
+
+    td_kp_stab: tap_dance_keypad_stab {
+        compatible = "zmk,behavior-tap-dance";
+        label = "td_keypad_stab";
+        #binding-cells = <0>;
+        tapping-term-ms = <TD_TERM>;
+        bindings = <&keypad_stab>, <&kp LS(TAB)>;
+    };
+
+    /* 0, 10, 22, 34, 46, 64, (80) */
+    combos {
+        compatible = "zmk,combos";
+        // combo_space_enter {
+        //     timeout-ms = <COMBO_TIME>;
+        //     key-positions = <69 70>;
+        //     bindings = <&mo LYLOW>;
+        // };
+
+        combo_caps {
+            timeout-ms = <COMBO_TIME>;
+            key-positions = <52 57>;
+            bindings = <&kp CAPS>;
+        };
+    };
