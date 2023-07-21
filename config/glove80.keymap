@@ -320,11 +320,11 @@
         layer_Base {
             bindings = <
  &ht_kp LC(V) LC(C)  &kp LC(LS(TAB))  &ht_kp F5 LC(F)  &kp LC(W)  &kp LC(TAB)                                                                                                                                  &kp F6  &kp LC(T)  &kp F11  &kp PSCRN                 &kp DEL
-          &kp GRAVE           &kp N1           &kp N2     &kp N3       &kp N4  &kp N5                                                                                                                &kp N6    &kp N7     &kp N8   &kp N9     &kp N0                &kp BSLH
-          &kp EQUAL            &kp Q            &kp W      &kp F        &kp P   &kp B                                                                                                                 &kp J     &kp L      &kp U    &kp Y   &kp SEMI               &kp MINUS
+          &kp GRAVE           &kp N1           &kp N2     &kp N3       &kp N4  &kp N5                                                                                                                &kp N6    &kp N7     &kp N8   &kp N9     &kp N0               &kp MINUS
+          &kp EQUAL            &kp Q            &kp W      &kp F        &kp P   &kp B                                                                                                                 &kp J     &kp L      &kp U    &kp Y   &kp SEMI                &kp BSLH
             &capesc            &kp A            &kp R      &kp S        &kp T   &kp G                                                                                                                 &kp M     &kp N      &kp E    &kp I      &kp O                 &kp SQT
            &kp LBKT            &kp Z            &kp X      &kp C        &kp D   &kp V  &kp LSHFT           &kp LCTRL  &kp LGUI  &ht_skq RGUI RS(RGUI)  &ht_skq RCTRL RS(RCTRL)  &ht_skq RSHFT RSHFT   &kp K     &kp H  &kp COMMA  &kp DOT   &kp FSLH                &kp RBKT
-     &magic LYMAG 0      &kp LS(TAB)         &kp LEFT  &kp RIGHT      &kp TAB          &kp SPACE  &ht_mo LYLOW ENTER  &kp LALT  &ht_skq RALT RS(RALT)       &ht_mo LYLOW ENTER             &kp BSPC          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT  &ht_mo_tog LYLYR LYPAD
+     &magic LYMAG 0      &kp LS(TAB)         &kp LEFT  &kp RIGHT      &kp TAB          &kp SPACE  &ht_mo LYLOW ENTER  &kp LALT  &ht_skq RALT RS(RALT)                  &kp RET             &kp BSPC          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT  &ht_mo_tog LYLYR LYPAD
             >;
         };
 
@@ -352,12 +352,12 @@
 
         layer_Lower {
             bindings = <
- &kp F1       &kp F2       &kp F3       &kp F4       &kp F5                                                                                &kp F6        &kp F7        &kp F8         &kp F9  &kp F10
-  &none     &kp C_RW   &kp C_PREV     &kp C_PP   &kp C_NEXT     &kp C_FF                                                   &kp K_BACK  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_FORWARD  &kp F11
-  &none     &kp EXCL       &kp AT     &kp HASH     &kp DLLR    &kp PRCNT                                                    &kp CARET    &kp AMPS    &fast_lbrc    &fast_rbrc      &kp COLON  &kp F12
- &trans     &kp STAR  &fast_equal  &fast_under  &fast_minus       &kp N0                                                       &kp N1  &fast_bslh    &fast_lpar    &fast_rpar      &fast_dqt  &kp DQT
-  &none  &fast_tilde   &fast_lbkt   &fast_rbkt   &fast_plus  &fast_grave  &trans  &trans  &trans  &trans  &trans   &trans       &none  &fast_pipe        &kp LT        &kp GT      &kp QMARK    &none
- &trans     &kp LEFT       &kp UP     &kp DOWN    &kp RIGHT               &trans  &trans  &trans  &trans  &trans  &kp DEL                &kp HOME     &kp PG_DN     &kp PG_UP        &kp END  &kp INS
+  &kp F1      &kp F2       &kp F3        &kp F4        &kp F5                                                                                   &kp F6      &kp F7      &kp F8       &kp F9    &kp F10
+ &kp F11    &kp C_RW   &kp C_PREV      &kp C_PP    &kp C_NEXT       &kp C_FF                                                    &kp CARET     &kp AMPS    &kp STAR    &kp LPAR     &kp RPAR  &kp UNDER
+ &kp F12  &kp K_BACK   &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_FORWARD                                                        &none     &kp AMPS  &fast_lbrc  &fast_rbrc    &kp COLON   &kp PIPE
+  &trans    &kp STAR  &fast_equal   &fast_under   &fast_minus          &none                                                   &fast_plus  &fast_minus  &fast_lpar  &fast_rpar  &fast_under    &kp DQT
+   &none       &none   &fast_lbkt    &fast_rbkt    &fast_plus          &none  &trans  &trans  &trans  &trans  &trans   &trans       &none   &fast_pipe      &kp LT      &kp GT    &kp QMARK      &none
+  &trans    &kp LEFT       &kp UP      &kp DOWN     &kp RIGHT                 &trans  &trans  &trans  &trans  &trans  &kp DEL                 &kp HOME   &kp PG_DN   &kp PG_UP      &kp END    &kp INS
             >;
         };
 
@@ -367,7 +367,7 @@
   &none   &none   &none   &none   &none   &none                                                   &none   &none   &none   &none   &none   &none
   &none   &none   &none   &none   &none   &none                                                   &none   &none   &none   &none   &none   &none
   &none   &none   &none   &none   &none   &none                                                   &none   &none   &none   &none   &none   &none
-  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none  &tog 2   &none   &none   &none   &none   &none   &none
+  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none  &tog 3  &tog 2   &none   &none   &none   &none   &none   &none
   &none   &none   &none   &none   &none           &none   &none   &none   &none   &to 1   &to 0           &none   &none   &none   &none   &none
             >;
         };
